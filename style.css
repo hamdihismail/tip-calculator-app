@@ -1,0 +1,498 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: 'Space Mono', monospace;
+  }
+ 
+  * {
+    margin: 0;
+  }
+  
+  html, body {
+    height: 100%;
+  }
+ 
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+ 
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+ 
+  input, button, textarea, select {
+    font: inherit;
+  }
+
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+
+  #root, #__next {
+    isolation: isolate;
+  }
+  /* button styles */
+  button{
+    border: none;
+    cursor: pointer;
+  }
+  button:hover{
+    background-color:hsla(172, 61%, 77%, 1);
+    ;
+  }
+  button:active{
+    background-color: var(--Strong-cyan);
+    color: var(--Very-dark-cyan);
+  }
+
+/* input field error msg style */
+.input__error{
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: right;
+  color: #E17457;
+}
+/* input validation style */
+input:invalid{
+  border: 2px solid #E17052;
+  border-radius: 5px;
+}
+
+/* input focus and active */
+input:focus{
+  outline-style: none;
+  border: 2px solid #26C2AE;
+}
+input:active{
+  outline-style: none;
+  border: 2px solid #26C2AE;
+}
+  /* getting rid of the arrows in the input field */
+  /* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+  /* styles */
+  :root{
+    /* colors */
+    --Strong-cyan: hsl(172, 67%, 45%);
+    --Very-dark-cyan: hsl(183, 100%, 15%);
+    --Dark-grayish-cyan: hsl(186, 14%, 43%);
+    --Grayish-cyan: hsl(184, 14%, 56%);
+    --Light-grayish-cyan: hsl(185, 41%, 84%);
+    --Very-light-grayish-cyan: hsl(189, 41%, 97%);
+    --White: hsl(0, 0%, 100%);
+
+    /* font styles */
+    --form-font: 24px;
+    --form-weight: 700;
+    /* mobile breakpoint */
+    --mobile-bp: 1090px;
+    
+  }
+
+.wrapper{
+ 
+  max-width: 1440px;
+  min-height: 100vh;
+  background: var(--Light-grayish-cyan);
+  /* padding-top: 15.9vh; */
+  /* padding-bottom: 23.3vh; */
+}
+@media(max-width: 1090px) {
+  .wrapper{
+    width: 375px;
+    height: 933px;
+    margin-bottom: 20px;
+  }
+}
+
+.splitter{
+  position: absolute;
+  background: url(/images/logo.svg) no-repeat center center/cover;
+  width: 86.66px;
+  height: 53.14px;
+  top: 5vh;
+  left: 47vw;
+  z-index: 10;
+}
+
+@media (max-width: 1090px) {
+  .splitter{
+    width: 86.66px;
+    height: 53.14px;
+    left: 144px;
+    top: 50px;
+
+  }
+}
+
+/* card container */
+.card{
+  position: absolute;
+  display: flex;
+  background: var(--White);
+  width: 920px;
+  height: 481px;
+  top: 18vh;
+  left: 18vw;
+  margin-right: 18vw;
+  /* bottom: 23vh; */
+  gap: 5.2%;
+  box-shadow: 0px 32px 43px rgba(79, 166, 175, 0.200735);
+  border-radius: 25px;
+  align-items: center;
+}
+@media (max-width: 1090px) {
+  .card{
+    flex-direction: column;
+    width: 375px;
+    height: 789px;
+    left: 0px;
+    top: 144px;
+    gap: 32px;
+  }
+}
+
+/* card input section */
+.card-input{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 379px;
+  gap: 40px;
+  min-height: 388px;
+  margin-top: 9.4%;
+  margin-left: 5.2%;
+  margin-bottom: 10%;
+}
+@media (max-width: 1090px) {
+  .card-input{
+    width: 311px;
+    height: 78px;
+    gap: 32px;
+  }
+}
+/* form start */
+.form-bill{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+@media (max-width: 1090px) {
+  .form-bill{
+    width: 311px;
+    height: 78px;
+  }
+}
+.label-bill{
+  color: var(--Dark-grayish-cyan);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+}
+.bill-price{
+  background: url(/images/icon-dollar.svg)no-repeat left center;
+  background-color:hsla(185, 38%, 97%, 1);
+  color: var(--Very-dark-cyan);
+  background-position-x: 5.5%;
+  /* padding-left: 80%; */
+  min-height: 48px;
+  border: none;
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
+  text-align: right;
+}
+/* form end */
+
+/* select tip */
+.select-tip{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows: repeat(3,1fr);
+  width: 379px;
+  height: 152px;
+  row-gap: 16px;
+  column-gap: 14px;
+}
+@media (max-width: 1090px) {
+  .select-tip{
+    width: 311px;
+    height: 176px;
+    row-gap: 16px;
+    column-gap: 16.56px;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(4,1fr);
+  }
+}
+.select-tip-header{
+  grid-column: 1/4 ;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--Dark-grayish-cyan);
+}
+@media (max-width: 1090px) {
+  .select-tip-header{
+    grid-column: 1/3;
+  }
+}
+.percent-btn{
+  background-color: var(--Very-dark-cyan);
+  color: var(--White);
+  height: 48px;
+  width: 117px;
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: var(--form-font);
+  line-height: 36px;
+  text-align: center;
+  }
+  @media (max-width: 1090px) {
+    .percent-btn{
+      width: 146.6px;
+    }
+  }
+  .percent-btn-custom{
+    display: block;
+    height: 48px;
+    width: 118px;
+    background-color: var(--Light-grayish-cyan);
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: var(--form-font);
+    line-height: 36px;
+    text-align: center;
+    color: #547878;
+    /* z-index: -10; */
+  }
+  @media (max-width: 1090px) {
+    .percent-btn-custom{
+      width: 146.6px;
+    }
+  }
+  
+  /* overlay */
+.custom-input{
+  display: none;
+  height: 48px;
+  width: 118px;
+  background: #F3F9FA;
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: var(--form-font);
+  line-height: 36px;
+  text-align: right;
+  color: #00474B;
+  outline-style: none;
+}
+@media (max-width: 1090px) {
+  .custom-input{
+    width: 146.6px;
+  }
+}
+/* select tip end */
+
+/* number of people */
+.form-people{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+@media (max-width: 1090px) {
+  .form-people{
+    margin-top: 32px;
+    width: 311px;
+    height: 78px;
+  }
+}
+.label-people{
+  color: var(--Dark-grayish-cyan);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+}
+.num-people{
+  background: url(/images/icon-person.svg)no-repeat left center;
+  background-color:hsla(185, 38%, 97%, 1);
+  color: var(--Very-dark-cyan);
+  background-position-x: 5.5%;
+  /* padding-left: 80%; */
+  min-height: 48px;
+  border: none;
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
+  text-align: right;
+}
+/* number of people end */
+
+
+
+/* card display section */
+.card-display{
+  display: flex;
+  flex-direction: column;
+  background: var(--Very-dark-cyan);
+  width: 413px;
+  height: 417px;
+  border-radius: 15px;
+  margin: 32px 32px 32px 0;
+  /* padding: 9.6% 9.7%; */
+}
+@media (max-width: 1090px) {
+  .card-display{
+    width: 327px;
+    height: 257px;
+    margin: 32px 24px;
+  }
+}
+
+/* tip amount start */
+.tip-amount-container{
+  display: flex;
+  height: 71px;
+  width: 333px;
+  margin: 9.6% 9.7% 0 9.7%;
+  justify-content: space-between;
+  align-items: center;
+}
+@media (max-width: 1090px) {
+  .tip-amount-container{
+    width: 281px;
+    margin: 37px 22px 0 24px;
+    height: 48px;
+  }
+}
+
+/* tip text start */
+.tip-text-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* height: 44px;
+  width: 98px; */
+}
+.tip-amount-text{
+  color: var(--White);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+}
+.tip-per-person{
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 19px;
+  color: #7F9D9F;
+}
+/* tip text end */
+
+.display-tip-amount{
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 71px;
+  text-align: right;
+  letter-spacing: -1px;
+  color: #26C2AE;
+}
+@media (max-width: 1090px) {
+  .display-tip-amount{
+    font-size: 32px;
+    line-height: 47px;
+    text-align: right;
+    letter-spacing: -0.666667px;
+  }
+}
+/* tip amount end */
+
+/* total amount start */
+.total-amount-container{
+  display: flex;
+  height: 71px;
+  width: 333px;
+  margin: 6% 9.7% auto 9.7%;
+  justify-content: space-between;
+  align-items: center;
+}
+@media (max-width: 1090px) {
+  .total-amount-container{
+    width: 281px;
+    height: 48px;
+    margin: 20px 22px 32px 24px;
+  }
+}
+
+/* total text start */
+.total-text-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.total-text{
+  color: var(--White);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+}
+.total-per-person{
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 19px;
+  color: #7F9D9F;
+}
+/* total text end */
+
+
+.display-total-amount{
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 71px;
+  text-align: right;
+  letter-spacing: -1px;
+  color: #26C2AE;
+}
+@media (max-width: 1090px) {
+  .display-total-amount{
+    font-size: 32px;
+    line-height: 47px;
+    text-align: right;
+    letter-spacing: -0.666667px;
+  }
+}
+/* total amount end */
+
+.reset-btn{
+  background: #26C2AE;
+  align-self: center;
+  height: 48px;
+  width: 333px;
+  border-radius: 5px;
+  margin-bottom: 9.6%;
+  /* margin: 0 96.9% 95.9% 96.9%; */
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+  text-align: center;
+  color: #00474B;
+}
+@media (max-width: 1090px) {
+  .reset-btn{
+    width: 281px;
+    margin-bottom: 24px;
+  }
+}

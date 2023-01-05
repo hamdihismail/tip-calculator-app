@@ -13,10 +13,10 @@ const totalPerPerson = document.querySelector('.display-total-amount');
 // // Reset Button
 resetBtn.addEventListener('click', function (){
     localStorage.removeItem(tip);
-    bill.value = 0;
-    numPeople.value = 0;
-    tipPerPerson.textContent = 0;
-    totalPerPerson.textContent = 0;
+    bill.value = '';
+    numPeople.value = '';
+    tipPerPerson.textContent = `$0.00`;
+    totalPerPerson.textContent = `$0.00`;
     overlay.style.display = 'none';
     customBtn.style.display = 'block';
 
